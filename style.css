@@ -1,0 +1,152 @@
+h2
+{
+    margin:0;
+
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 40px;
+    color:rgb(14, 81, 1);
+    
+}
+body
+{
+    background-image: url(./Background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+#main-1
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.basic
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    position: relative;
+    top: 20rem;
+}
+
+.block
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    background-color: aliceblue;
+    
+    padding: 20px 2rem 20px 2rem;
+    margin: 0;
+    border-top: 20px solid rgb(0, 208, 0);
+    border-radius: 1rem;
+
+    width: 25rem;
+    height: max-content;
+
+    transition-duration: 0.4s;
+    cursor: text;
+
+}
+
+.block-title
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    background-color: aliceblue;
+    
+    padding: 20px 2rem 20px 2rem;
+    margin: 0;
+    border-top: 20px solid rgb(0, 208, 0);
+    border-radius: 1rem;
+
+    width: 25rem;
+    height: max-content;
+
+}
+
+.input
+{
+    background-color: aliceblue;
+    
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+
+    border: none;
+    outline: none;
+    border-bottom: 2px solid rgb(17, 102, 0);
+    /*border-style: ridge;*/
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    height: 20px;
+
+    
+}
+
+button
+{
+    border-radius: 0.5rem;
+    padding: 16px 32px;
+
+    text-align: center;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+textarea
+{
+
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+
+    outline: none;
+    border: 2px solid  rgb(0, 208, 0);
+    border-radius: 0.5rem;
+
+    height: 100px;
+}
+
+.back-submit
+{
+    display: flex;
+    gap: 14rem;
+    margin: 20px;
+}
+
+.submit
+{
+    background-color: aliceblue;
+    border: 3px solid rgb(0, 208, 0);
+    color: rgb(17, 102, 0);
+}
+
+.submit:hover
+{
+    background-color: rgb(17, 102, 0);
+    color: aliceblue;
+}
