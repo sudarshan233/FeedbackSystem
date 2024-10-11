@@ -41,10 +41,52 @@ app.post('/submit-feedback', async(req,res)=>{
     })
     await feedbackDetails.save()
     console.log(feedbackDetails)
-    res.send("Form submission successful")
+    res.send(`
+        <html>
+        <head>
+            <link rel="shortcut icon" type="x-icon" href="./logo.png">
+            <title>FastForms</title>
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+            <style>
+                h1,h2
+                {
+                    color: whitesmoke;
+                    text-align: center;
+                    font-family: "Ubuntu", sans-serif;
+                }
+                div
+                {
+                    display: flex;
+                    justify-content: center;
+                }
+                a
+                {
+                    color: white;
+                    font-family: "Ubuntu", sans-serif;
+                }
+                body
+                {
+                    background-image: url(./Background.png);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+            </style>
+        </head>
+        <body>
+            <h1>Feedback has been successfully submitted</h1>
+            <h2>Thank you!!</h2>
+            <div>
+                <a href="/">Go Back to Form</a>
+            </div>
+        </body>
+        </html>`)
 })
 
 app.listen(port,()=>
 {
-    console.log("Server is started")
+    console.log("Server has started. Click https://localhost:3020")
+    
 })
