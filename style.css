@@ -11,7 +11,7 @@ h2
 }
 body
 {
-    background-image: url(./Background.png);
+    background-color: aquamarine;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -51,8 +51,8 @@ body
     
     padding: 20px 2rem 20px 2rem;
     margin: 0;
-    border-top: 20px solid rgb(0, 208, 0);
-    border-radius: 1rem;
+    border-top: 20px solid rgb(19, 109, 1);
+    border-radius: 0.5rem;
 
     width: 25rem;
     height: max-content;
@@ -72,8 +72,8 @@ body
     
     padding: 20px 2rem 20px 2rem;
     margin: 0;
-    border-top: 20px solid rgb(0, 208, 0);
-    border-radius: 1rem;
+    border-top: 20px solid rgb(19, 109, 1);
+    border-radius: 0.5rem;
 
     width: 25rem;
     height: max-content;
@@ -97,8 +97,6 @@ body
     border-left: none;
     border-right: none;
     height: 20px;
-
-    
 }
 
 button
@@ -125,7 +123,7 @@ textarea
     font-size: 16px;
 
     outline: none;
-    border: 2px solid  rgb(0, 208, 0);
+    border: 2px solid  rgb(14, 81, 1);
     border-radius: 0.5rem;
 
     height: 100px;
@@ -141,12 +139,12 @@ textarea
 .submit
 {
     background-color: aliceblue;
-    border: 3px solid rgb(0, 208, 0);
+    border: 3px solid rgb(19, 109, 1);
     color: rgb(17, 102, 0);
 }
 
 .submit:hover
 {
-    background-color: rgb(17, 102, 0);
+    background-color: rgb(19, 109, 1);
     color: aliceblue;
 }
