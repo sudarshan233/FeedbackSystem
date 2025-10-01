@@ -5,11 +5,13 @@ dotenv.config();
 import authRoutes from "./routes/auth.routes.js";
 import formRoutes from "./routes/form.routes.js";
 import {connectDB} from "./config/database.js";
+import cookieParser from 'cookie-parser';
 
 const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
+app.use(cookieParser());
 connectDB()
 app.use('/api/forms', formRoutes);
 app.use('/api/auth', authRoutes)

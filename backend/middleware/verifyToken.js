@@ -1,0 +1,29 @@
+import jwt from 'jsonwebtoken';
+import dotenv from "dotenv";
+dotenv.config();
+
+export const verifyToken = (req, res, next) => {
+    const token = req.cookies.token;
+    try {
+        if(!token) return res.status(400).json({
+            success: false,
+            message: "Unauthorized - No token provided"
+        });
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        if(!decoded) return res.status(400).json({
+            success: false,
+            message: "Unauthorized - Invalid Token"
+        });
+
+        req.userId = decoded.userId;
+        next();
+        
+    } catch (error) {
+        return res.status(400).json({
+            success: false,
+            message: "Token Verification Failed",
+            error: error.message
+        });
+    }
+}
