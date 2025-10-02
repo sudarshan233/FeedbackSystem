@@ -150,7 +150,7 @@ export const signup = async (req, res) => {
         await user.save();
 
         generateTokenAndSetCookie(res, user._id)
-        sendVerificationEmail(user.email, verificationToken);
+        await sendVerificationEmail(user.email, verificationToken);
         res.status(201).json({
             success: true,
             message: "User created successfully",
@@ -190,7 +190,7 @@ export const verifyMail = async (req, res) => {
         user.verificationTokenExpiresAt = undefined;
 
         await user.save();
-        sendWelcomeEmail(user.email, user.name)
+        await sendWelcomeEmail(user.email, user.name)
         res.status(200).json({
             success: true,
             message: "Email verified successfully",
