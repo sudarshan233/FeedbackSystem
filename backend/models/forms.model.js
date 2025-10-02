@@ -4,7 +4,6 @@ const FormSchema = new mongoose.Schema({
     ownerId:{
         type: String,
         required: true,
-        unique: true
     },
     title: String,
     questions: Array,

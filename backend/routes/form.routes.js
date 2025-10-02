@@ -1,9 +1,13 @@
 import express from "express";
 
-import { formSubmission } from "../controllers/form.controllers.js";
+import {
+    createForms,
+    submitForms
+} from "../controllers/form.controllers.js";
 
 const router = express.Router();
 
-router.post("/", formSubmission);
+router.post("/create-forms", createForms);
+router.post("/submit-forms/:id", submitForms);
 
 export default router;
