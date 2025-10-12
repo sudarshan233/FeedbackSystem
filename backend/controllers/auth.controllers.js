@@ -17,9 +17,8 @@ export const login = async(req, res) => {
     if(!user) 
         throw Error("Your account does not exist. Please create your account")
     
-    const checkPassword = User.findOne({
-        password
-    })
+    const checkPassword = await bcryptjs.compare(password, user.password);
+    console.log(checkPassword)
 
     if(!checkPassword)
         throw Error("Invalid password. Try again!!!")
@@ -61,7 +60,7 @@ export const forgotPassword = async(req, res) => {
 
         await user.save();
 
-        await sendPasswordResetEmail(email, `${clientUrl}/reset-password/${resetToken}`);
+        await sendPasswordResetEmail(email, `${clientUrl}reset-password/${resetToken}`);
 
         res.status(200).json({
             success: true,
@@ -76,7 +75,7 @@ export const forgotPassword = async(req, res) => {
 }
 
 export const resetPassword = async (req, res) => {
-    const {newPassword, confirmPassword} = req.body;
+    const {newPassword} = req.body;
     const {token} = req.params;
 
     try {
@@ -88,12 +87,6 @@ export const resetPassword = async (req, res) => {
             return res.status(400).json({
                 success: false,
                 message: "The user does not exist. Create a new account."
-            })
-
-        if(newPassword !== confirmPassword)
-            return res.status(400).json({
-                success: false,
-                message: "The confirmed password does not match with the new password. Try Again!!!"
             })
         const hashedPassword = await bcryptjs.hash(newPassword, 10);
         
@@ -131,7 +124,7 @@ export const signup = async (req, res) => {
 
         const userAlreadyExists = await User.findOne({ email });
         if(userAlreadyExists) {
-            res.status(400).json({
+            return res.status(400).json({
                 success: false,
                 message: "User already exists"
             })
@@ -171,13 +164,21 @@ export const verifyMail = async (req, res) => {
     const {code} = req.body;
     
     try {
+        if(!code) {
+            return res.status(400).json({
+                success: false,
+                message: "Enter the code!!"
+            });
+
+        }
+
         const user = await User.findOne({
             verificationToken: code,
             verificationTokenExpiresAt: { $gt: new Date() }
         });
 
         if(!user) {
-            res.status(400).json({
+            return res.status(400).json({
                 success: false,
                 message: "Invalid or expired token"
             });
